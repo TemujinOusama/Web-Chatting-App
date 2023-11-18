@@ -1,0 +1,72 @@
+
+body{
+    background-color:rgb(181, 181, 181);
+}
+.container{
+    background-color: rgb(46, 46, 46);
+    padding: 60px;
+    margin: auto;
+    width: 30%;
+    margin-top: 200px;
+    border-radius: 20px;
+    position: relative;
+    transition-duration: 0.5s;
+    
+}
+.container:hover{
+    box-shadow: 1px 1px 10px 10px rgb(255, 255, 255);
+}
+.loginFields{
+    margin: 10px;
+    padding:10px;
+    border: solid rgb(173, 173, 173);
+    border-radius: 5px;
+}
+.loginFields input{
+    margin:auto;
+    background-color: rgb(46,46,46);
+    border:none;
+    width: 100%;
+    outline: none;
+    caret-color:  rgb(173, 173, 173);
+    color: rgb(181, 181, 181);
+}
+input::placeholder{
+    color:rgb(181, 181, 181);
+}
+input:focus::placeholder{
+    color: transparent;
+}
+input:focus{
+    border-color: black;
+}
+.loginButton{
+    margin: auto;
+    text-align: center;
+}
+.loginButton input{
+    width: 50%;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(181,181,181) ;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.createAccount{
+    position: absolute;
+    right:5%;
+    bottom: 5%;
+    border: dashed rgb(181,181,181) ;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.createAccount button{
+    color:  rgb(181,181,181);
+    text-decoration: none;
+    background-color:rgb(46,46,46) ;
+    border-style: none;
+    cursor: pointer;
+}
+

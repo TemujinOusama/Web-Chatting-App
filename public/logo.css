@@ -1,0 +1,44 @@
+.logo{
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor:pointer;
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    text-shadow: #fff 2px 2px ;
+}
+
+.logo span{
+    transition: 0.5s;
+}
+.logo:hover{
+    text-shadow: none;
+}
+.logo:hover span:nth-child(2){
+    color:transparent;
+}
+.logo:hover span:nth-child(4){
+    color:transparent;
+}
+
+.logo:hover span:nth-child(1){
+    margin-left: 50px;
+    
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 30px #fff,
+                 0 0 80px #fff,
+                 0 0 100px #fff;
+}
+.logo:hover span:nth-child(3){
+    margin-left: -150px;
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 30px #fff,
+                 0 0 80px #fff,
+                 0 0 100px #fff;
+}
+
+

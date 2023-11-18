@@ -1,0 +1,55 @@
+dialog{
+    width: fit-content;
+    background-color:  rgb(46,46,46);
+    border: none;
+    border-radius: 10px;
+}
+dialog::backdrop{
+    backdrop-filter: blur(3px);
+    background-color: hsla(0, 0%, 100%, 0.399);
+}
+
+#closeModalBtn{
+    position: absolute;
+    right: 20px;
+    color:rgb(173, 173, 173);
+    cursor: pointer;
+}
+
+.accountCreds{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.column{
+    display: flex;
+}
+.box{
+    padding:5px;
+    margin:10px;
+    border: solid rgb(173, 173, 173);
+    border-radius: 5px;
+}
+
+.accountCreds input{
+    margin:auto;
+    background-color: rgb(46,46,46);
+    border: none;
+    width: 100%;
+    outline: none;
+    caret-color:  rgb(173, 173, 173);
+    color: rgb(181, 181, 181);
+}
+.submit{
+    margin: auto;
+    text-align: center;
+}
+.submit input{
+    width: 50%;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(181,181,181) ;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Who</title>
+    <link rel="icon" href="/android-icon-36x36.png" type="image/png">
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="column">
+            <div class="left-colum">
+                <div class="person">
+                    <span></span>
+                </div>
+                <div class="person">
+                    <span></span>
+                </div>
+            </div>
+            <div class="separation-line"></div>
+            <div class="right-column">
+                <div class="conversation" id="conversation"> 
+                </div>
+                <div class="message-entry">
+                    <textarea name="message-input" id="message-input" placeholder="Message"></textarea>
+                    <img src="send-icon.png" alt="send-icon" id="send-btn">                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="chat.js"></script>
+</body>
+</html>
