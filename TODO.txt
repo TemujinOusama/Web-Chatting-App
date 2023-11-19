@@ -1,3 +1,3 @@
 
-create the messaging UI/page
+make the messages save to the database. after saving to database, display it to the screen
 create the chatting functionality with websocket

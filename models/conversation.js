@@ -1,16 +1,31 @@
 const mongoose = require('mongoose')
 
-const conversation = mongoose.Schema({
-    conversationId:{
-        type:String
+const messagesSchema = mongoose.Schema({
+    senderID :{
+        type:mongoose.Schema.Types.ObjectID,
+        ref:"User",
     },
-    users:[
-        {
-            id:String
+    content:{
+        type:String,
+        required:true
+    },
+    sentAt:{
+        type:Date,
+        immutable:true,
+        default:()=>Date.now,
+    }
+})
+const conversationSchema = mongoose.Schema({
+    
+    participants:[
+        {   
+            type:mongoose.Schema.Types.ObjectId, 
+            ref:"User",
+            required:true,
         }
     ],
-    messages:messages
+    messages:[messagesSchema]
 })
-const messages = mongoose.Schema({
-    senderID :{type:mongoose.Schema.Types.ObjectID, }
-})
+
+const conversation = mongoose.model("Conversation",conversationSchema)
+module.exports = conversation
