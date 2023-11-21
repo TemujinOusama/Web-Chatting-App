@@ -8,9 +8,9 @@ app.use(express.json())
 app.use(express.static('public'))
 
 //routing for cleanliness
-const userRoute = require('./routes/index')
+const login = require('./routes/index')
 const messagesRoute = require('./routes/messages')
-app.use(userRoute)
+app.use(login)
 app.use(messagesRoute)
 //This is my todo, try to serve messages.html after logging in
 

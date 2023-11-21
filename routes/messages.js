@@ -3,6 +3,7 @@ const router = express.Router()
 const path = require('path')
 const Conversation = require('../models/conversation')
 const User = require('../models/userModel')
+//const {requireAuth} = require('../middleware/authMiddleware')
 
 router.get('/messages', (req, res) =>{      //redirecting to /messages.html
     const filePath = path.join(__dirname,'../public/messages.html')
@@ -10,10 +11,13 @@ router.get('/messages', (req, res) =>{      //redirecting to /messages.html
 })
 
 router.post('/messages', async (req, res)=>{
-
-    const participant = await User.find()
-    //const conversation = await Conversation.create({participants:})
-    
+    const {action}= req.body
+    if(action === 'getUserID'){
+        res.status(200).json({success:true})
+    }
+    else{
+        res.status(200)
+    }
     
 })
 

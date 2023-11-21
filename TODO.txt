@@ -1,3 +1,4 @@
+create the frontend for the public view of the profile -> it should include the login button that when clicked, it would redirect them to /login/:id/link and after logging in, the chatting UI is open already
 
 make the messages save to the database. after saving to database, display it to the screen
 create the chatting functionality with websocket

@@ -1,7 +1,7 @@
 const sendBtn = document.getElementById('send-btn')
-
 const messageElement = document.getElementById('message-input')
 
+if(sendBtn){
 sendBtn.addEventListener('click', async (event)=>{
     event.preventDefault()
     const message = messageElement.value
@@ -34,7 +34,9 @@ sendBtn.addEventListener('click', async (event)=>{
     }
     messageElement.value=''  //clear the message entry when sending 
 })
-
+}else{
+    console.log('button does not exist')
+}
 
 
 
