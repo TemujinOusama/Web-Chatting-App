@@ -3,7 +3,7 @@ const loginEmail = document.getElementById('email')
 const loginPassword = document.getElementById('password')
 
 
-//api response not working
+
 loginForm.addEventListener('submit', async(event)=>{
     event.preventDefault()
     if(loginEmail.checkValidity() && loginPassword.checkValidity()){ 
@@ -33,6 +33,7 @@ loginForm.addEventListener('submit', async(event)=>{
         } catch (error) {
             console.error(error)
             alert("invalid")
+            console.log(error.message)
         }
     }
     else{

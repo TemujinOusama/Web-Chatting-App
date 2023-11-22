@@ -5,13 +5,11 @@ const app = express()
 
 
 app.use(express.json())
-app.use(express.static('public'))
 
-//routing for cleanliness
-const login = require('./routes/index')
-const messagesRoute = require('./routes/messages')
-app.use(login)
-app.use(messagesRoute)
+
+const route =require('./routes/routes')
+app.use(route)
+
 //This is my todo, try to serve messages.html after logging in
 
 const port = process.env.PORT || 5000

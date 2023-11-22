@@ -17,6 +17,7 @@ const firstname = document.getElementById('createFirstName')
 const surname = document.getElementById('createSurName')
 const email = document.getElementById('createEmail')
 const password = document.getElementById('createPassword')
+const userName = document.getElementById('userID')
 
 form.addEventListener('submit', async(event)=>{
     event.preventDefault()
@@ -32,7 +33,8 @@ form.addEventListener('submit', async(event)=>{
                    surname:surname.value,
                    email:email.value,
                    password:password.value,
-                   action:"createAccount"
+                   action:"createAccount",
+                   userName:userName.value
                })
            })
           

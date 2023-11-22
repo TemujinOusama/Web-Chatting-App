@@ -1,31 +1,26 @@
-const express = require('express')
-const router = express.Router()
 const User = require('../models/userModel')
 const path = require('path')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-
 const maxAge = 60*1
-const createToken=(id)=>{
+const createToken=(id)=>{           //creating a json webtoken
     return jwt.sign({id}, 'lariwell secret lods', {
         expiresIn: maxAge
     })
 }
 
-router.get('/', async(req,res) =>{
-    const filePath = path.join(__dirname,'../public/index.html')
+module.exports.login_get = (req, res) =>{
+    const filePath = path.join(__dirname,'../views/login&signup/login.html')
     res.sendFile(filePath)
-})
-//logging in route
-router.post('/', async(req, res)=>{
-    const action = req.body.action          //contains the action. whether login or createAccount
+}
 
+module.exports.login_post = async(req,res)=>{
+    const action = req.body.action          //contains the action. whether login or createAccount
 
     if(action === 'login'){             
         try {
         const user = await User.find({email:req.body.email})     //find the user email on the database. if it exists, then proceed to login
-      
         if(user.length!==0){
             if(await bcrypt.compare(req.body.password,user[0].password)){
                 const token = createToken(user._id)
@@ -69,8 +64,4 @@ router.post('/', async(req, res)=>{
         console.log("Action not recognized...")
         res.status(404).json({success:false, message:"Action not Recognized"})
     }
-})
-
-module.exports = router
-
-
+}

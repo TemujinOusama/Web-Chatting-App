@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess Who</title>
-    <link rel="icon" href="/android-icon-36x36.png" type="image/png">
+    <link rel="icon" href="/logo.png" type="image/png">
     <link rel="stylesheet" href= "/login.css">
     <link rel="stylesheet" href="/logo.css">
     <link rel="stylesheet" href="/createAccount.css">
 </head>
 <body>
+ 
     <div class="logo">
         <h1><span class="logoInitial">G</span><span>uess</span><span class="logoInitial">W</span><span>ho</span></h1>
     </div>
@@ -43,8 +44,11 @@
                         <div class="box">
                             <input type="text" placeholder="Surname" id="createSurName" required>
                         </div>
+                        
                     </div>
-                    
+                    <div class="box">
+                        <input id ="userID"type="text" placeholder="@user_name" required>
+                    </div>
                     <div class="box">
                         <input id="createEmail" type="text" placeholder="Email"  required>
                     </div>
@@ -61,6 +65,7 @@
     </div>
     <script src="/login.js"></script>
     <script src="/createAccount.js"></script>
+    <script src="/publicView/publicView.js"></script>
     
     
 </body>
