@@ -20,7 +20,8 @@ const userSchema= mongoose.Schema(
         userName:{
             type:String,
             required:[true, "Enter User ID"]
-        }
+        },
+        
     },
     {
         timestamps:true 

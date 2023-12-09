@@ -8,13 +8,18 @@
     <link rel="stylesheet" href= "/login.css">
     <link rel="stylesheet" href="/logo.css">
     <link rel="stylesheet" href="/createAccount.css">
+    <link rel="stylesheet" href="/publicView.css">
 </head>
 <body>
- 
+    <dialog class="publicViewContainer" id="publicViewContainer">
+        
+    </dialog>
     <div class="logo">
         <h1><span class="logoInitial">G</span><span>uess</span><span class="logoInitial">W</span><span>ho</span></h1>
     </div>
-    <div class="container">
+    
+    <div class="container" >
+        
         <form id="loginForm" >
             <div class="loginFields">
                 <input type="text" placeholder="Email" class="loginCreds" id="email" required name="email">
@@ -27,15 +32,15 @@
                 <input type="submit" value="Log In" id="loginBtn">
             </div>
         </form>
-            <div class="createAccount">
-                <button id="openModalBtn">Create Account</button>
-            </div>
+        <div class="createAccount">
+            <button id="openModalBtn">Create Account</button>
+        </div>
         
         <dialog id="modal">
             <div  id="closeModalBtn">
                 <span>&#10006;</span>
             </div>
-            <form id="createAccountForm" >
+            <form id="createAccountForm">
                 <div class="accountCreds">
                     <div class="column">
                         <div class="box">
@@ -62,10 +67,20 @@
                 </div>
             </form>
         </dialog>
+        
     </div>
+    
+
     <script src="/login.js"></script>
     <script src="/createAccount.js"></script>
-    <script src="/publicView/publicView.js"></script>
+    <script src="/publicView.js"> </script>
+    <script>
+        if(window.location.pathname.startsWith('/user')){
+            displayPublicView('publicViewContainer')
+        }
+    
+    </script>
+   
     
     
 </body>

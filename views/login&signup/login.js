@@ -21,11 +21,8 @@ loginForm.addEventListener('submit', async(event)=>{
             })
             const result = await response.json()    //await the result of the sent body(the result came from the server)
             if(result.success){
-                setInterval(()=>{               //delay just for mimicking the time it takes for others
-                    window.location.href = "/messages"      //redirect to /messages
-                },1500)
+                window.location.href = "/messages"      //redirect to /messages
                 console.log('Logging in...')
-                
             }
             else{
                 alert(result.message)       //if the server responds something else

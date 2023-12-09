@@ -29,8 +29,8 @@ form.addEventListener('submit', async(event)=>{
                    "Content-Type":'application/json'
                },
                body: JSON.stringify({       
-                   firstname:firstname.value,
-                   surname:surname.value,
+                   firstname:format(firstname.value),
+                   surname:format(surname.value),
                    email:email.value,
                    password:password.value,
                    action:"createAccount",
@@ -58,3 +58,6 @@ form.addEventListener('submit', async(event)=>{
 })
 
 
+function format(word){
+    return word.charAt(0).toUpperCase() + word.slice(1)
+}

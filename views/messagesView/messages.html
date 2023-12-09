@@ -4,18 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess Who</title>
-    <link rel="icon" href="/android-icon-36x36.png" type="image/png">
+    <link rel="icon" href="/logo.png" type="image/png">
     <link rel="stylesheet" href="messages.css">
 </head>
 <body>
-    
+    <dialog class=publicViewContainer id="publicViewContainer"></dialog>
     <div class="container">
         <div class="column">
-            <div class="left-column">
-               
-                <div class="person" id="person">
-                    <h1>?</h1>
+            <div class="left-column" id="left-column">
+                <div class="search-person" id="search-person" >
+                    <input type="text" placeholder="Search User Name" oninput=showResults(this.value) id="searchPersonInput">
+                    <div class="results-container" id="results-container" ></div>
                 </div>
+                <div class="people-container" id="people-container">
+                    
+                    
+                </div>
+                
+                <div class="settings-container">
+                    <img src="gear-icon.png" alt="gear-icon" id="gear-icon">
+                    <div class="settings-menu" id="settings-menu">
+                        <div id="edit-profile" class="menu-item">
+                            <div>
+                                Edit Profile
+                            </div>
+                        </div>
+                        
+                        <div id="log-out" class="menu-item">
+                            <div>
+                                Log Out
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             <div class="separation-line"></div>
             <div class="right-column" id="right-column">
@@ -23,8 +45,16 @@
             </div>
         </div>
     </div>
-    
-    <script src="messages.js"></script>
+  
+    <script src="socket.io/socket.io.js"></script>
+    <script src="connectSocket.js"></script>
+    <script src="loadConversations.js"></script>
+  
+    <script src="searchPerson.js"></script>
+    <script src="openChat.js"></script>
     <script src="chat.js"></script>
+    <script src="settings.js"></script>
+    <script>loadConversations()</script>
+
 </body>
 </html>

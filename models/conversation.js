@@ -12,7 +12,7 @@ const messagesSchema = mongoose.Schema({
     sentAt:{
         type:Date,
         immutable:true,
-        default:()=>Date.now,
+        default:Date.now,
     }
 })
 const conversationSchema = mongoose.Schema({
@@ -27,5 +27,5 @@ const conversationSchema = mongoose.Schema({
     messages:[messagesSchema]
 })
 
-const conversation = mongoose.model("Conversation",conversationSchema)
-module.exports = conversation
+const Conversation = mongoose.model("Conversation",conversationSchema)
+module.exports = Conversation

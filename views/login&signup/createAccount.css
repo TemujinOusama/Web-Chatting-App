@@ -1,10 +1,10 @@
-dialog{
+#modal{
     width: fit-content;
     background-color:  rgb(46,46,46);
     border: none;
     border-radius: 10px;
 }
-dialog::backdrop{
+#modal::backdrop{
     backdrop-filter: blur(3px);
     background-color: hsla(0, 0%, 100%, 0.399);
 }

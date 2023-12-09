@@ -1,52 +1,44 @@
-const sendBtn = document.getElementById('send-btn')
-const messageElement = document.getElementById('message-input')
+const socket = io('http://localhost:5001')
 
-if(sendBtn){
-sendBtn.addEventListener('click', async (event)=>{
-    event.preventDefault()
-    const message = messageElement.value
-    if(message.trim() !== ''){          //if the message entered is blank
-        try {
-            const response = await fetch('/messages', {  //send the message to the server
-                method: 'POST',
-                headers:{
-                    "Content-Type":'application/json'
-                },
-                body: JSON.stringify({       
-                    message:message,
-
-
-                })
+async function sendMessage(contact, message){
+    try {
+        const response = await fetch('/messages',{          //put the message to the database first.
+            method:"POST",
+            headers:{
+                "Content-Type":'application/json'
+            },
+            body:JSON.stringify({
+                'action':'sendMessage',
+                'recepient':contact._id,
+                'message':message
+                
             })
-            const result = await response.json()
+        })
+        const result = await response.json()
+        if(result.success){
+            displayMessage(message)             //then display the message
             
-            if(result.success){
-                displayMessage(message)
-                //console.log(message)
-            }
-            else{
-                alert('Message not sent')
-            }
-        } catch (error) {
-            console.error(error)
+            socket.emit('send-message', {message:message,from:result.sender, to:result.recepient})
+
         }
-        
+    } catch (error) {
+        console.error(error)
     }
-    messageElement.value=''  //clear the message entry when sending 
-})
-}else{
-    console.log('button does not exist')
 }
 
-
-
 function displayMessage(message){
-    const newDiv = document.createElement('div') //create a div that contains span for easier design
-    const newSpan = document.createElement('span')//create the span
-    newDiv.className='message-div'
-    newSpan.className='message-span'
-    newSpan.textContent = message
-    newDiv.appendChild(newSpan)         //put the span inside the div
+    const messageContainer = document.createElement('div') //create a div that contains span for easier design
+    const messageDiv = document.createElement('div')//create the span
+    messageContainer.className='user-message-div'
+    messageDiv.className='user-message-span'
+    messageDiv.textContent = message
+    messageContainer.appendChild(messageDiv)         //put the span inside the div
     const conversation = document.getElementById('conversation')
-    conversation.appendChild(newDiv)    //put the div inside the conversation area
+    conversation.appendChild(messageContainer)    //put the div inside the conversation area
+
+    const messageEntry = document.getElementById('message-input')
+    messageEntry.value = ''
+
+    conversation.scrollTop = conversation.scrollHeight
+    
 }  

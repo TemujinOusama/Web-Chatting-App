@@ -1,21 +1,34 @@
-const jwt = require('jsonwebtoken')
+const {sign,verify}= require('jsonwebtoken')
+require('dotenv').config()
 
-const requireAuth = (req,res, next)=>{
+const createUser = (user)=>{
+    const userID = user._id.toString()
+    return userID
+}
+const createToken = (user)=>{
+    const accessToken = sign({userID:user._id}, process.env.SECRET_ACCESS)  //creates and returns the token
+    return accessToken
+}
+const maxAge = 1000*60*60*24
+
+const authenticateToken = (req,res, next)=>{            //check if the token matches with the existing token(stored in cookies)
     const token = req.cookies.jwt
     if(token){
-        jwt.verify(token, 'lariwell secret lods',(err, decodedToken)=>{
+        verify(token, process.env.SECRET_ACCESS,(err, decodedToken)=>{
             if(err){
-                console.log(err.message)
-                res.redirect('/')
+                console.log(" Token verification error:",err.message)
+                return res.status(403).json({message:'Forbidden'})
             }
             else{
-                console.log(decodedToken)
+                req.user = decodedToken         //will be used when making requests as user
                 next()
             }
+            
         } )
     }
+
     else{
         res.redirect('/')
     }
 }
-module.exports = {requireAuth}
+module.exports = {createToken, authenticateToken, maxAge, createUser}
