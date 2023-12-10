@@ -1,6 +1,5 @@
 # Edit Profile Functionality
 # Public View Chat Button
 # Use Different cookie for User Identifier
-# Log Out Remove User ID Cookie
 # Improve front-end for mobile use
 # Limit Chat Div Size to avoid overlapping 

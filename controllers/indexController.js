@@ -22,8 +22,9 @@ module.exports.login_post = async(req,res)=>{
             if(await bcrypt.compare(req.body.password,user.password)){
                 const token = createToken(user)
                 const userID = createUser(user)
+
                 res.cookie('jwt', token,{httpOnly:true, maxAge:maxAge})
-                res.cookie('user_id',userID,{maxAge:maxAge, path:'/messages' })
+                res.cookie('user_id',userID,{maxAge:maxAge})
                 
                 res.status(200).json({success:true, message:'Logged In!', user:user._id})
             }

@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="messages.css">
 </head>
 <body>
-    <dialog class=publicViewContainer id="publicViewContainer"></dialog>
+    <dialog class="publicViewContainer" id="publicViewContainer"></dialog>
+    <dialog id="profile-view-container" >
+        <div class="wrapper">
+            
+
+        </div>
+    </dialog>
     <div class="container">
         <div class="column">
             <div class="left-column" id="left-column">
@@ -24,9 +30,9 @@
                 <div class="settings-container">
                     <img src="gear-icon.png" alt="gear-icon" id="gear-icon">
                     <div class="settings-menu" id="settings-menu">
-                        <div id="edit-profile" class="menu-item">
+                        <div id="profile" class="menu-item">
                             <div>
-                                Edit Profile
+                                Profile
                             </div>
                         </div>
                         
@@ -47,14 +53,16 @@
     </div>
   
     <script src="socket.io/socket.io.js"></script>
-    <script src="connectSocket.js"></script>
-    <script src="loadConversations.js"></script>
+    <script src="./logic/connectSocket.js"></script>
+    <script src="./logic/loadConversations.js"></script>
   
-    <script src="searchPerson.js"></script>
-    <script src="openChat.js"></script>
-    <script src="chat.js"></script>
-    <script src="settings.js"></script>
+    <script src="./logic/searchPerson.js"></script>
+    <script src="./logic/openChat.js"></script>
+    <script src="./logic/chat.js"></script>
+    <script src="./logic/editProfile.js"></script>
+    <script src="./logic/settings.js"></script>
     <script>loadConversations()</script>
+    
 
 </body>
 </html>
